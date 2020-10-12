@@ -4,6 +4,7 @@ require('model.php');
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
+header("Content-Security-Policy: default-src *; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' 13.68.189.1");
 
 function fetchAll(){
     //Create an array variable to hold list of search records
