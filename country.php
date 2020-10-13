@@ -46,16 +46,16 @@ if(isset($_GET['key']) && !empty($_GET['key']) && !empty($_GET['id']) ){
 
     if ($list){
         foreach ($list as $value){
-            $id = $value['id'];
-            $title = $value['title'];
-            $body = $value['body'];
-            $author = $value['author'];
+            // $id = $value['id'];
+            $code = $value['country_code'];
+            $phonecode = $value['phonecode'];
+
 
             $post_item = array(
               // "id"=>$id,
-              "title"=>$title,
-              "body"=>$body,
-              "author"=>$author
+              "country_code"=>$code,
+              "phonecode"=>$phonecode
+
             );
 
             array_push($posts_arr, $post_item);

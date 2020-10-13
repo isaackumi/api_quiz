@@ -11,6 +11,40 @@ class API extends db_connection
 //    ##########      BRANDS  ################################
 
 
+
+
+
+
+    function fetchOne($country){
+        $sql = "SELECT * FROM country WHERE `fullname`='$country'";
+        return $this->db_query($sql);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function create(){
 
         $sql="INSERT into posts VALUES('$brand')";
@@ -23,40 +57,6 @@ class API extends db_connection
         $sql = 'SELECT * FROM posts';
         return $this->db_query($sql);
     }
-
-
-
-    function fetchOne($id){
-        $sql = "SELECT * FROM posts WHERE `id`= '$id'";
-        return $this->db_query($sql);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     function delete_brand($id){
