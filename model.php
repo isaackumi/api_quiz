@@ -184,7 +184,7 @@ class API extends db_connection
 
   }
 
-$p = new API();
-print_r($p->fetchOne(1));
+// $p = new API();
+// print_r($p->fetchOne(1));
 
   ?>
