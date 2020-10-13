@@ -33,6 +33,7 @@ function fetchAll(){
 
 
 $list = fetchAll();
+echo $list;
 $posts_arr = array();
 
 if ($list){
