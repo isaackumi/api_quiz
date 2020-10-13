@@ -13,7 +13,7 @@ function fetchAll(){
     $object = new API();
 
     //run the search product method
-    $records = $object->fetchAll();
+    $records = $object->fetchOne(2);
 
     //check if the method worked
     if ($records) {
