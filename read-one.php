@@ -31,9 +31,9 @@ function fetchAll($var){
     return $result_array;
 }
 
-if(isset($_GET['key']) && !empty($_GET['key']) ){
+if(isset($_GET['key']) && !empty($_GET['key']) && !empty($_GET['id']) ){
   $key = $_GET['key'];
-  if($key == "abc"){
+  if($key == "kumfrez"){
 
     $id = $_GET['id'];
 
@@ -61,13 +61,18 @@ if(isset($_GET['key']) && !empty($_GET['key']) ){
         }
     echo json_encode($posts_arr);
     // print_r($posts_arr);
-    }
+  }else{
+
+    echo json_encode(
+      array('error' => 'Item does not exist!')
+    );
+  }
 
 
 
   }else{
     echo json_encode(
-      array('error' => 'Invalid key')
+      array('error' => 'Invalid API key!')
     );
   }
 
@@ -76,7 +81,7 @@ if(isset($_GET['key']) && !empty($_GET['key']) ){
 
 }else{
   echo json_encode(
-    array('error' => 'API key is required')
+    array('error' => 'API key is required!')
   );
 }
 
