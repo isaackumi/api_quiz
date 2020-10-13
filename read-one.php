@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 // header("Content-Security-Policy: default-src 'none';");
 // header("Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data: https: http; script-src 'self' 'unsafe-inline' 'unsafe-eval' *");
 
-function fetchAll(){
+function fetchAll($var){
     //Create an array variable to hold list of search records
     $result_array = array();
 
@@ -16,7 +16,7 @@ function fetchAll(){
     $object = new API();
 
     //run the search product method
-    $records = $object->fetchOne(1);
+    $records = $object->fetchOne($var);
 
     //check if the method worked
     if ($records) {
@@ -31,32 +31,59 @@ function fetchAll(){
     return $result_array;
 }
 
+if(isset($_GET['key']) && !empty($_GET['key']) ){
+  $key = $_GET['key'];
+  if($key == "abc"){
 
-$list = fetchAll();
-// echo $list;
-$posts_arr = array();
+    $id = $_GET['id'];
 
-if ($list){
-    foreach ($list as $value){
-        $id = $value['id'];
-        $title = $value['title'];
-        $body = $value['body'];
-        $author = $value['author'];
+    $list = fetchAll($id);
+    // echo $list;
+    $posts_arr = array();
 
-        $post_item = array(
-          // "id"=>$id,
-          "title"=>$title,
-          "body"=>$body,
-          "author"=>$author
-        );
+    if ($list){
+        foreach ($list as $value){
+            $id = $value['id'];
+            $title = $value['title'];
+            $body = $value['body'];
+            $author = $value['author'];
 
-        array_push($posts_arr, $post_item);
+            $post_item = array(
+              // "id"=>$id,
+              "title"=>$title,
+              "body"=>$body,
+              "author"=>$author
+            );
+
+            array_push($posts_arr, $post_item);
 
 
+        }
+    echo json_encode($posts_arr);
+    // print_r($posts_arr);
     }
-echo json_encode($posts_arr);
-// print_r($posts_arr);
+
+
+
+  }else{
+    echo json_encode(
+      array('error' => 'Invalid key')
+    );
+  }
+
+
+
+
+}else{
+  echo json_encode(
+    array('error' => 'API key is required')
+  );
 }
+
+
+
+
+
 
 
 
