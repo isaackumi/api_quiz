@@ -54,10 +54,6 @@ if ($list){
 
     }
 echo json_encode($posts_arr);
-}else{
-  echo json_encode(
-      array('message' => 'No Post Found')
-    );
 }
 
 
