@@ -53,16 +53,11 @@ if ($list){
 
 
     }
-// echo json_encode($posts_arr);
-$item = array(
-  // "id"=>$id,
-  "title"=>"Example 1",
-  "body"=>"This is a body",
-  "author"=>"kumi"
-);
-
-
-print_r($item);
+echo json_encode($posts_arr);
+}else{
+  echo json_encode(
+      array('message' => 'No Post Found')
+    );
 }
 
 
