@@ -53,7 +53,8 @@ if ($list){
 
 
     }
-echo json_encode($posts_arr);
+// echo json_encode($posts_arr);
+print_r($posts_arr);
 }
 
 
