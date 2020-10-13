@@ -114,4 +114,7 @@ class db_connection
     }
 
 }
+
+$db = new db_connection();
+echo $db->db_connect();
 ?>
