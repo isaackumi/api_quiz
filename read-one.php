@@ -62,7 +62,7 @@ $item = array(
 );
 
 
-echo json_encode($item);
+print_r($item);
 }
 
 
