@@ -2,8 +2,8 @@
 
 require('model.php');
 
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+// header('Access-Control-Allow-Origin: *');
+// header('Content-Type: application/json');
 
 function fetchAll(){
     //Create an array variable to hold list of search records
