@@ -33,60 +33,86 @@ function fetchAll($var){
 
  // req method
 
-if(isset($_GET['key']) && !empty($_GET['key']) && !empty($_GET['id']) ){
-  $key = $_GET['key'];
+ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-  if($key == "kumfrez"){
+   if(isset($_POST['key']) && !empty($_POST['key'])){
 
-    $id = $_GET['id'];
+   if(!empty($_POST['country'])){
 
-    $list = fetchAll($id);
-    // echo $list;
-    $posts_arr = array();
+     // ...
 
-    if ($list){
-        foreach ($list as $value){
-            // $id = $value['id'];
-            $code = $value['country_code'];
-            $phonecode = $value['phonecode'];
+        $key = $_POST['key'];
 
+             if($key == "kumfrez"){
 
-            $post_item = array(
-              // "id"=>$id,
-              "country_code"=>$code,
-              "phonecode"=>$phonecode
+               $country = $_POST['country'];
 
-            );
+               $list = fetchAll($country);
+               // echo $list;
+               $posts_arr = array();
 
-            array_push($posts_arr, $post_item);
+               if ($list){
+                   foreach ($list as $value){
+                       // $id = $value['id'];
+                       $code = $value['country_code'];
+                       $phonecode = $value['phonecode'];
 
 
-        }
-    echo json_encode($posts_arr);
-    // print_r($posts_arr);
-  }else{
+                       $post_item = array(
+                         // "id"=>$id,
+                         "country_code"=>$code,
+                         "phonecode"=>$phonecode
 
-    echo json_encode(
-      array('error' => 'Item does not exist!')
-    );
-  }
+                       );
 
+                       array_push($posts_arr, $post_item);
 
 
-  }else{
-    echo json_encode(
-      array('error' => 'Invalid API key!')
-    );
-  }
+                   }
+               echo json_encode($posts_arr);
+               // print_r($posts_arr);
+             }else{
 
+               echo json_encode(
+                 array('error' => 'Item does not exist!')
+               );
+             }
 
 
 
-}else{
-  echo json_encode(
-    array('error' => 'API key is required!')
-  );
-}
+             }else{
+               echo json_encode(
+                 array('error' => 'Invalid API key!')
+               );
+             }
+
+
+   }else{
+     echo json_encode(
+       array('error' => 'Country parameter is required!')
+     );
+   }
+
+
+
+
+
+
+   }else{
+     echo json_encode(
+       array('error' => 'API key is required!')
+     );
+   }
+
+
+ }else{
+   echo json_encode(
+     array('error' => 'Only post requests are allowed!')
+   );
+ }
+
+
+
 
 
 
