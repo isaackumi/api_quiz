@@ -5,7 +5,7 @@ require('model.php');
 // header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 // header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
-header("Content-Security-Policy: default-src 'none';");
+// header("Content-Security-Policy: default-src 'none';");
 // header("Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data: https: http; script-src 'self' 'unsafe-inline' 'unsafe-eval' *");
 
 function fetchAll(){
