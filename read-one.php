@@ -53,7 +53,16 @@ if ($list){
 
 
     }
-echo json_encode($posts_arr);
+// echo json_encode($posts_arr);
+$item = array(
+  // "id"=>$id,
+  "title"=>"Example 1",
+  "body"=>"This is a body",
+  "author"=>"kumi"
+);
+
+
+echo json_encode($item);
 }
 
 
