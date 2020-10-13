@@ -3,6 +3,7 @@
 <?php
 require_once('db_class.php');
 
+
 class API extends db_connection
 {
 
@@ -23,10 +24,40 @@ class API extends db_connection
         return $this->db_query($sql);
     }
 
+
+
     function fetchOne($id){
         $sql = "SELECT * FROM posts WHERE `id`= '$id'";
         return $this->db_query($sql);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function delete_brand($id){
         $sql = "DELETE FROM brands WHERE `brand_id`= '$id'";
